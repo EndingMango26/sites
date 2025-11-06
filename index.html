@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes sites favoris</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="color-scheme" content="light dark">
+    <style>
+        :root{
+            --bg-1: linear-gradient(180deg,#0f172a 0%, #0b1220 60%);
+            --card: rgba(255,255,255,0.06);
+            --glass: rgba(255,255,255,0.06);
+            --accent: #06b6d4; /* cyan */
+            --muted: #9aa4b2;
+            --radius: 14px;
+            --maxw: 1100px;
+            color-scheme: light;
+        }
+        html,body{height:100%;}
+        body{
+            margin:0;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            background: var(--bg-1);
+            background-attachment: fixed;
+            -webkit-font-smoothing:antialiased;
+            color: #e6eef6;
+            padding:40px 20px;
+            min-height:100vh;
+        }
+        .page{
+            width:100%;
+            max-width:var(--maxw);
+            margin:0 auto;
+        }
+        header{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:20px;
+            margin-bottom:28px;
+        }
+        .brand{
+            display:flex;
+            gap:16px;
+            align-items:center;
+        }
+        .logo{
+            width:56px;
+            height:56px;
+            border-radius:12px;
+            background:linear-gradient(135deg,var(--accent),#7c3aed);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            box-shadow:0 6px 20px rgba(2,6,23,0.6);
+            font-weight:700;
+            font-size:20px;
+            color:#021124;
+        }
+        h1{font-size:20px;margin:0}
+        p.lead{margin:0;color:var(--muted)}
+
+        /* search */
+        .search{
+            display:flex;
+            gap:12px;
+            align-items:center;
+        }
+        .search input{
+            min-width:220px;
+            padding:10px 14px;
+            border-radius:999px;
+            border:1px solid rgba(255,255,255,0.08);
+            background:rgba(255,255,255,0.03);
+            color:inherit;
+            outline:none;
+            transition:box-shadow .18s,transform .12s;
+        }
+        .search input:focus{box-shadow:0 6px 24px rgba(6,182,212,0.12);transform:translateY(-1px)}
+        .search button{
+            padding:10px 14px;border-radius:999px;border:none;background:var(--accent);color:#022033;font-weight:600;cursor:pointer
+        }
+
+        /* grid */
+        .grid{
+            display:grid;
+            gap:18px;
+            grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+        }
+        .card{
+            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border:1px solid rgba(255,255,255,0.06);
+            border-radius:var(--radius);
+            padding:18px;
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+            align-items:center;
+            text-align:center;
+            box-shadow: 0 8px 30px rgba(2,6,23,0.5);
+            transition:transform .18s,box-shadow .18s;
+        }
+        .card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 20px 40px rgba(2,6,23,0.6)}
+        .card .favicon{
+            width:72px;
+            height:72px;
+            border-radius:12px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background:rgba(255,255,255,0.03);
+            overflow:hidden;
+            aspect-ratio:1/1;
+        }
+        .card .favicon img{
+            width:100%;
+            height:100%;
+            object-fit:contain;
+            object-position:center;
+            display:block;
+        }
+        .card h3{margin:0;font-size:16px}
+        .card p{margin:0;color:var(--muted);font-size:13px}
+        .card a.visit{display:inline-block;margin-top:8px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.06);color:inherit;text-decoration:none;font-weight:600;border:1px solid rgba(255,255,255,0.04)}
+        .card a.visit:hover{background:var(--accent);color:#022033;border-color:transparent}
+
+        footer{margin-top:28px;color:var(--muted);text-align:center;font-size:13px}
+
+        /* responsive tweaks */
+        @media (max-width:520px){
+            header{flex-direction:column;align-items:flex-start}
+            .search{width:100%}
+            h1{font-size:18px}
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <div class="brand">
+                <div class="logo">Sites</div>
+                <div>
+                    <h1>Mes sites favoris</h1>
+                    <p class="lead">Accédez rapidement aux sites que j'utilise</p>
+                </div>
+            </div>
+            <div class="search" role="search" aria-label="Rechercher un site">
+                <input type="search" placeholder="Rechercher..." aria-label="Rechercher">
+                <button aria-label="Lancer la recherche">Chercher</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="grid" aria-label="Liste de sites">
+                <article class="card">
+                    <h3>Google</h3>
+                    <p>Moteur de recherche — rapide et simple.</p>
+                    <div class="favicon" aria-hidden="true">
+                        <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google" style="width:72px;height:auto">
+                    </div>
+                    <a class="visit" href="https://www.google.fr" target="_blank" rel="noopener noreferrer">Aller sur Google</a>
+                </article>
+
+                <article class="card">
+                    <h3>YouTube</h3>
+                    <p>Vidéos, musique et divertissement.</p>
+                    <div class="favicon" aria-hidden="true">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube" style="width:72px;height:auto">
+                    </div>
+                    <a class="visit" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">Aller sur YouTube</a>
+                </article>
+
+                <article class="card">
+                    <h3>X</h3>
+                    <p>Vidéos, musique et divertissement.</p>
+                    <div class="favicon" aria-hidden="true">
+                        <img src="https://img.freepik.com/vecteurs-premium/nouveau-vecteur-conception-du-logo-twitter-x_1340851-70.jpg?semt=ais_hybrid&w=740&q=80" alt="X" style="width:72px;height:auto">
+                    </div>
+                    <a class="visit" href="https://www.x.com" target="_blank" rel="noopener noreferrer">Aller sur X</a>
+                </article>
+
+                <article class="card">
+                    <h3>Twitch</h3>
+                    <p>Vidéos, musique et divertissement.</p>
+                    <div class="favicon" aria-hidden="true">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Twitch.jpg" alt="Twitch" style="width:72px;height:auto">
+                    </div>
+                    <a class="visit" href="https://www.twitch.tv" target="_blank" rel="noopener noreferrer">Aller sur Twitch</a>
+                </article>
+
+                <article class="card">
+                    <h3>Reddit</h3>
+                    <p>Le forum communautaire pour tout et rien.</p>
+                    <div class="favicon" aria-hidden="true">
+                        <img src="https://img.freepik.com/vecteurs-premium/reddit-logo_578229-207.jpg?semt=ais_hybrid&w=740&q=80" alt="Reddit" style="width:72px;height:auto">
+                    </div>
+                    <a class="visit" href="https://www.reddit.com" target="_blank" rel="noopener noreferrer">Aller sur Reddit</a>
+                </article>
+
+                <article class="card">
+                    <h3>GitHub</h3>
+                    <p>Plateforme de développement collaboratif.</p>
+                    <div class="favicon" aria-hidden="true">
+                        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" style="width:72px;height:auto">
+                    </div>
+                    <a class="visit" href="https://www.github.com" target="_blank" rel="noopener noreferrer">Aller sur GitHub</a>
+                </article>
+
+                <article class="card">
+                    <h3>Stack Overflow</h3>
+                    <p>Communauté de développeurs pour poser des questions.</p>
+                    <div class="favicon" aria-hidden="true">
+                        <img src="https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.png" alt="Stack Overflow" style="width:72px;height:auto">
+                    </div>
+                    <a class="visit" href="https://stackoverflow.com" target="_blank" rel="noopener noreferrer">Aller sur Stack Overflow</a>
+                </article>
+
+                <article class="card">
+                    <h3>MDN Web Docs</h3>
+                    <p>Documentation pour les développeurs web.</p>
+                    <div class="favicon" aria-hidden="true">
+                        <img src="https://download.logo.wine/logo/MDN_Web_Docs/MDN_Web_Docs-Logo.wine.png" alt="MDN Web Docs" style="width:72px;height:auto">
+                    </div>
+                    <a class="visit" href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer">Aller sur MDN Web Docs</a>
+                </article>
+
+                <!-- Exemple : ajouter d'autres cartes ici -->
+            </section>
+        </main>
+    </div>
+</body>
+</html>
